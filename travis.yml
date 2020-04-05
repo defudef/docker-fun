@@ -1,10 +1,10 @@
-language: node_js
+language: generic
 sudo: required
   services
     - docker
 
 before_install:
-  - docker build -t mdrwiega:simple-react .
+  - docker build -t mdrwiega/simple-react .
 
 script:
-  - docker run mdrwiega:simple-react npm run test -- --coverage
+  - docker run -e CI=true mdrwiega/simple-react npm run test

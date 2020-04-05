@@ -1,3 +1,4 @@
+language: node_js
 services:
   - docker
 
@@ -5,4 +6,5 @@ before_install:
   - docker build -t mdrwiega/simple-react .
 
 script:
-  - docker run -e CI=true mdrwiega/simple-react npm run test
+  - docker run -e CI=true mdrwiega/simple-react npm run test -- --coverage
+  
